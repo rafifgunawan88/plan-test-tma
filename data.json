@@ -1,0 +1,86 @@
+{
+  "year_summary_performances": [
+    {
+      "date": "2",
+      "target_time": "4",
+      "work_time": "5",
+      "achievement": "100",
+      "overtime": "2",
+      "day": "sunday"
+    },
+    {
+      "date": "19",
+      "target_time": "4",
+      "work_time": "5",
+      "achievement": "100",
+      "overtime": "2",
+      "day": "sunday"
+    },
+    {
+      "date": "1",
+      "target_time": "4",
+      "work_time": "5",
+      "achievement": "100",
+      "overtime": "2",
+      "day": "sunday"
+    },
+    {
+      "date": "1",
+      "target_time": "4",
+      "work_time": "5",
+      "achievement": "100",
+      "overtime": "2",
+      "day": "sunday"
+    },
+    {
+      "date": "1",
+      "target_time": "4",
+      "work_time": "5",
+      "achievement": "100",
+      "overtime": "2",
+      "day": "sunday"
+    }
+  ],
+  "daily_performances": [
+    {
+      "date": "3",
+      "target_time": "4",
+      "work_time": "2",
+      "achievement": "100",
+      "overtime": "2",
+      "day": "sunday"
+    },
+    {
+      "date": "1",
+      "target_time": "4",
+      "work_time": "5",
+      "achievement": "100",
+      "overtime": "2",
+      "day": "sunday"
+    },
+    {
+      "date": "1",
+      "target_time": "4",
+      "work_time": "5",
+      "achievement": "10",
+      "overtime": "2",
+      "day": "sunday"
+    },
+    {
+      "date": "1",
+      "target_time": "4",
+      "work_time": "5",
+      "achievement": "900",
+      "overtime": "2",
+      "day": "sunday"
+    },
+    {
+      "date": "1",
+      "target_time": "4",
+      "work_time": "5",
+      "achievement": "100",
+      "overtime": "2",
+      "day": "sunday"
+    }
+  ]
+}
