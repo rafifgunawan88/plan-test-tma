@@ -223,17 +223,21 @@
 
     <!-- BAGIAN FOOTER (N, O) -->
 
-    <footer class="p-2 d-flex justify-content-between fixed-bottom text-light bg-danger mx-auto" style="width: 90%">
-      <div>TECH MAYANTRA ASIA</div>
-      <div onload="realtimeClock()">
-        <span id="clock"></span>
+    <footer class="p-1 d-flex fixed-bottom text-light bg-danger mx-auto" style="width: 90%">
+      <div class="p-1 flex-grow-1 text-start">TECH MAYANTRA ASIA</div>
+
+      <div class="p-1">
         <span>
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#inbox">Inbox</button>
+          <button type="button" class="btn btn-primary mx-2" data-bs-toggle="modal" data-bs-target="#inbox">Inbox</button>
         </span>
         <span></span>
         <span>
           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#notif">Notif</button>
         </span>
+      </div>
+      <div class="p-1 flex-shrink-1 fs-6">
+        <span id="date-wrapper" style="font-size: 10px"></span><br />
+        <span id="clock-wrapper" style="font-size: 10px"></span>
       </div>
     </footer>
 
@@ -318,6 +322,34 @@
     <script src="https://cdn.datatables.net/select/1.4.0/js/dataTables.select.min.js"></script>
     <script src="https://code.highcharts.com/highcharts.js"></script>
 
+    <!-- HARI DAN TANGGAL -->
+    <script type="text/javascript">
+      var months = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+      var myDays = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jum&#39;at", "Sabtu"];
+      var date = new Date();
+      var day = date.getDate();
+      var month = date.getMonth();
+      var thisDay = date.getDay(),
+        thisDay = myDays[thisDay];
+      var yy = date.getYear();
+      var year = yy < 1000 ? yy + 1900 : yy;
+      $("#date-wrapper").html(thisDay + ", " + day + " " + months[month] + " " + year);
+    </script>
+    <!-- AKHIR HARI DAN TANGGAL -->
+
+    <!-- JAM -->
+
+    <script>
+      setInterval(function () {
+        var date = new Date();
+        $("#clock-wrapper").html(date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds());
+      }, 500);
+    </script>
+
+    <!-- AKHIR JAM -->
+
+    <!-- SCRIPT NGAMBIL DATA KE TABEL -->
+
     <script>
       $("#example").DataTable({
         ajax: {
@@ -337,6 +369,8 @@
         columns: [{ data: "date" }, { data: "target_time" }, { data: "work_time" }, { data: "achievement" }, { data: "overtime" }, { data: "day" }],
       });
     </script>
+
+    <!-- SCRIPT NGAMBIL DATA KE TABEL -->
 
     <script>
       var minDate, maxDate;
