@@ -1,7 +1,15 @@
 {
   "year_summary_performances": [
     {
-      "date": "2",
+      "date": "2022-11-25",
+      "target_time": "4",
+      "work_time": "5",
+      "achievement": "40",
+      "overtime": "2",
+      "day": "sunday"
+    },
+    {
+      "date": "2022-11-20",
       "target_time": "4",
       "work_time": "5",
       "achievement": "100",
@@ -9,7 +17,7 @@
       "day": "sunday"
     },
     {
-      "date": "19",
+      "date": "2022-9-20",
       "target_time": "4",
       "work_time": "5",
       "achievement": "100",
@@ -17,7 +25,7 @@
       "day": "sunday"
     },
     {
-      "date": "1",
+      "date": "2022-10-20",
       "target_time": "4",
       "work_time": "5",
       "achievement": "100",
@@ -25,15 +33,7 @@
       "day": "sunday"
     },
     {
-      "date": "1",
-      "target_time": "4",
-      "work_time": "5",
-      "achievement": "100",
-      "overtime": "2",
-      "day": "sunday"
-    },
-    {
-      "date": "1",
+      "date": "2022-11-11",
       "target_time": "4",
       "work_time": "5",
       "achievement": "100",
@@ -43,7 +43,7 @@
   ],
   "daily_performances": [
     {
-      "date": "3",
+      "date": "2022-11-25",
       "target_time": "4",
       "work_time": "2",
       "achievement": "100",
@@ -51,7 +51,7 @@
       "day": "sunday"
     },
     {
-      "date": "1",
+      "date": "2022-11-24",
       "target_time": "4",
       "work_time": "5",
       "achievement": "100",
@@ -59,7 +59,7 @@
       "day": "sunday"
     },
     {
-      "date": "1",
+      "date": "2022-11-23",
       "target_time": "4",
       "work_time": "5",
       "achievement": "10",
@@ -67,7 +67,7 @@
       "day": "sunday"
     },
     {
-      "date": "1",
+      "date": "2022-11-22",
       "target_time": "4",
       "work_time": "5",
       "achievement": "900",
@@ -75,7 +75,7 @@
       "day": "sunday"
     },
     {
-      "date": "1",
+      "date": "2022-11-21",
       "target_time": "4",
       "work_time": "5",
       "achievement": "100",
