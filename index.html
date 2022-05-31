@@ -112,8 +112,8 @@
             </li>
           </ul>
           <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">COLUMN</div>
-            <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">PIE</div>
+            <div class="tab-pane fade chartcolumntableatas" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0"></div>
+            <div class="tab-pane fade chartpietableatas" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0"></div>
           </div>
         </div>
         <div class="col-5 atas">
@@ -497,6 +497,116 @@
         var chart = Highcharts.chart(container[0], {
           chart: {
             type: "area",
+          },
+          title: {
+            text: "",
+          },
+          series: [
+            {
+              data: chartData(table),
+            },
+          ],
+        });
+
+        // On each draw, update the data in the chart
+        table.on("draw", function () {
+          chart.series[0].setData(chartData(table));
+        });
+      });
+
+      function chartData(table) {
+        var counts = {};
+
+        // Count the number of entries for each position
+        table
+          .column(3, { search: "applied" })
+          .data()
+          .each(function (val) {
+            if (counts[val]) {
+              counts[val] += 1;
+            } else {
+              counts[val] = 1;
+            }
+          });
+
+        // And map it to the format highcharts uses
+        return $.map(counts, function (val, key) {
+          return {
+            name: key,
+            y: val,
+          };
+        });
+      }
+    </script>
+
+    <script>
+      $(document).ready(function () {
+        // Create DataTable
+        var table = $("#table-atas").DataTable({
+          dom: "Pfrtip",
+        });
+
+        // Create the chart with initial data
+        var container = $(".chartcolumntableatas");
+
+        var chart = Highcharts.chart(container[0], {
+          chart: {
+            type: "column",
+          },
+          title: {
+            text: "",
+          },
+          series: [
+            {
+              data: chartData(table),
+            },
+          ],
+        });
+
+        // On each draw, update the data in the chart
+        table.on("draw", function () {
+          chart.series[0].setData(chartData(table));
+        });
+      });
+
+      function chartData(table) {
+        var counts = {};
+
+        // Count the number of entries for each position
+        table
+          .column(3, { search: "applied" })
+          .data()
+          .each(function (val) {
+            if (counts[val]) {
+              counts[val] += 1;
+            } else {
+              counts[val] = 1;
+            }
+          });
+
+        // And map it to the format highcharts uses
+        return $.map(counts, function (val, key) {
+          return {
+            name: key,
+            y: val,
+          };
+        });
+      }
+    </script>
+
+    <script>
+      $(document).ready(function () {
+        // Create DataTable
+        var table = $("#table-atas").DataTable({
+          dom: "Pfrtip",
+        });
+
+        // Create the chart with initial data
+        var container = $(".chartpietableatas");
+
+        var chart = Highcharts.chart(container[0], {
+          chart: {
+            type: "pie",
           },
           title: {
             text: "",
