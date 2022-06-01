@@ -16,6 +16,8 @@
     <script src="https://cdn.datatables.net/searchpanes/2.0.1/js/dataTables.searchPanes.min.js"></script>
     <script src="https://cdn.datatables.net/select/1.4.0/js/dataTables.select.min.js"></script>
     <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="chartcolumntableatas.js"></script>
+    <script src="chartpietableatas.js"></script>
 
     <!-- Datatables -->
 
@@ -445,7 +447,7 @@
       $(document).ready(function () {
         // Create DataTable
         var table = $("#example").DataTable({
-          destroy: true,
+          retrieve: true,
           dom: "Pfrtip",
         });
 
@@ -501,7 +503,7 @@
       $(document).ready(function () {
         // Create DataTable
         var table = $("#example").DataTable({
-          destroy: true,
+          retrieve: true,
           dom: "Pfrtip",
         });
 
@@ -557,7 +559,7 @@
       $(document).ready(function () {
         // Create DataTable
         var table = $("#example").DataTable({
-          destroy: true,
+          retrieve: true,
           dom: "Pfrtip",
         });
 
@@ -609,117 +611,7 @@
       }
     </script>
 
-    <script>
-      $(document).ready(function () {
-        // Create DataTable
-        var table = $("#table-atas").DataTable({
-          destroy: true,
-          dom: "Pfrtip",
-        });
-
-        // Create the chart with initial data
-        var container = $(".chartcolumntableatas");
-
-        var chart = Highcharts.chart(container[0], {
-          chart: {
-            type: "column",
-          },
-          title: {
-            text: "",
-          },
-          series: [
-            {
-              data: chartData(table),
-            },
-          ],
-        });
-
-        // On each draw, update the data in the chart
-        table.on("draw", function () {
-          chart.series[0].setData(chartData(table));
-        });
-      });
-
-      function chartData(table) {
-        var counts = {};
-
-        // Count the number of entries for each position
-        table
-          .column(3, { search: "applied" })
-          .data()
-          .each(function (val) {
-            if (counts[val]) {
-              counts[val] += 1;
-            } else {
-              counts[val] = 1;
-            }
-          });
-
-        // And map it to the format highcharts uses
-        return $.map(counts, function (val, key) {
-          return {
-            name: key,
-            y: val,
-          };
-        });
-      }
-    </script>
-
-    <script>
-      $(document).ready(function () {
-        // Create DataTable
-        var table = $("#table-atas").DataTable({
-          destroy: true,
-          dom: "Pfrtip",
-        });
-
-        // Create the chart with initial data
-        var container = $(".chartpietableatas");
-
-        var chart = Highcharts.chart(container[0], {
-          chart: {
-            type: "pie",
-          },
-          title: {
-            text: "",
-          },
-          series: [
-            {
-              data: chartData(table),
-            },
-          ],
-        });
-
-        // On each draw, update the data in the chart
-        table.on("draw", function () {
-          chart.series[0].setData(chartData(table));
-        });
-      });
-
-      function chartData(table) {
-        var counts = {};
-
-        // Count the number of entries for each position
-        table
-          .column(3, { search: "applied" })
-          .data()
-          .each(function (val) {
-            if (counts[val]) {
-              counts[val] += 1;
-            } else {
-              counts[val] = 1;
-            }
-          });
-
-        // And map it to the format highcharts uses
-        return $.map(counts, function (val, key) {
-          return {
-            name: key,
-            y: val,
-          };
-        });
-      }
-    </script>
+    <script></script>
 
     <!-- AKHIR SCRIPT HIGHCHART -->
   </body>
