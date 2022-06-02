@@ -73,7 +73,9 @@
       div.dtsp-panesContainer {
         display: none;
       }
-
+      .dataTables_info {
+        display: none;
+      }
       .scroll-left {
         height: 50px;
         overflow: hidden;
@@ -103,13 +105,6 @@
           transform: translateX(-100%);
         }
       }
-
-      #modalinbox {
-        width: 100%;
-      }
-      #modalnotif {
-        width: 100%;
-      }
     </style>
   </head>
   <body>
@@ -118,16 +113,16 @@
       <div class="row">
         <div class="col-2">
           <div class="card bg-danger">
-            <img src="foto.jpg" class="card-img-top" alt="fotouser" style="width: 50%" />
+            <img src="foto.jpeg" class="card-img-top" alt="fotouser" style="width: 50%" />
             <div class="card-body">
               <h5 class="card-title">Nama Lengkap</h5>
               <p class="card-text">Email</p>
               <div>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#notif">NOTIFICATION <span class="badge bg-secondary">4</span></button><br />
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#notif">NOTIFICATION <span id="countnotif2" class="badge bg-secondary"></span></button><br />
               </div>
               <br />
               <div>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#inbox">INBOX<span class="badge bg-secondary">4</span></button><br />
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#inbox">INBOX<span id="countinbox2" class="badge bg-secondary"></span></button><br />
               </div>
               <br /><br />
               <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">EXIT</button>
@@ -141,12 +136,12 @@
               <button class="nav-link bg-light text-dark" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">COLUMN</button>
             </li>
             <li class="nav-item" role="presentation">
-              <button class="nav-link bg-danger text-white" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">PIE</button>
+              <button class="nav-link active bg-danger text-white" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">PIE</button>
             </li>
           </ul>
           <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade chartcolumntableatas" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0"></div>
-            <div class="tab-pane fade chartpietableatas" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0"></div>
+            <div class="tab-pane fade show active chartpietableatas" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0"></div>
           </div>
         </div>
         <div class="col-5 atas">
@@ -260,11 +255,11 @@
 
       <div class="p-1">
         <span>
-          <button type="button" class="badge bg-success mx-2" data-bs-toggle="modal" data-bs-target="#inbox" style="border-radius: 100%; border: 2px solid white">4</button>
+          <button id="countinbox" type="button" class="badge bg-success mx-2" data-bs-toggle="modal" data-bs-target="#inbox" style="border-radius: 100%; border: 2px solid white"></button>
         </span>
         <span> </span>
         <span>
-          <button type="button" class="badge bg-danger" data-bs-toggle="modal" data-bs-target="#notif" style="border-radius: 100%; border: 2px solid white">4</button>
+          <button id="countnotif" type="button" class="badge bg-danger" data-bs-toggle="modal" data-bs-target="#notif" style="border-radius: 100%; border: 2px solid white"></button>
         </span>
       </div>
       <div class="p-1 flex-shrink-1 fs-6">
@@ -306,13 +301,13 @@
           <div class="modal-body">
             <div class="row">
               <div class="col">
-                <table id="modalinbox" class="table table-bordered table align-middle">
+                <table id="modalinbox" class="table table-bordered table align-middle mx-auto" style="width: 95%">
                   <thead class="table-secondary">
                     <tr>
                       <th scope="col">INBOX</th>
                     </tr>
                   </thead>
-                  <tbody></tbody>
+                  <tbody id="modalinboxbody"></tbody>
                 </table>
               </div>
             </div>
@@ -335,7 +330,7 @@
           <div class="modal-body">
             <div class="row">
               <div class="col">
-                <table id="modalnotif" class="table table-bordered table align-middle">
+                <table id="modalnotif" class="table table-bordered table align-middle mx-auto" style="width: 95%">
                   <thead class="table-secondary">
                     <tr>
                       <th scope="col">NOTIFICATION</th>
@@ -637,5 +632,69 @@
     <script></script>
 
     <!-- AKHIR SCRIPT HIGHCHART -->
+
+    <!-- NGITUNG JUMLAH DATA -->
+    <script>
+      var myObject = [
+        {
+          notif: "ini notif pertama",
+        },
+        {
+          notif: "ini notif kedua",
+        },
+        {
+          notif: "ini notif ktiga",
+        },
+        {
+          notif: "ini notif keempat",
+        },
+        {
+          notif: "ini notif kelima",
+        },
+      ];
+      console.log(myObject);
+
+      var count = Object.keys(myObject).length;
+      console.log(count);
+
+      document.getElementById("countnotif").innerHTML = count;
+      document.getElementById("countnotif2").innerHTML = count;
+    </script>
+    <!-- NGITUNG JUMLAH DATA-->
+
+    <!-- NGITUNG JUMLAH DATA -->
+
+    <script>
+      var table = [
+        {
+          inbox: "Ini inbox pertama",
+        },
+        {
+          inbox: "Ini inbox kedua",
+        },
+        {
+          inbox: "Ini inbox ketiga",
+        },
+        {
+          inbox: "Ini inbox keempat",
+        },
+        {
+          inbox: "Ini inbox keenam",
+        },
+        {
+          inbox: "Ini inbox kelima",
+        },
+      ];
+
+      var myObject = table;
+      console.log(myObject);
+
+      var count = Object.keys(myObject).length;
+      console.log(count);
+
+      document.getElementById("countinbox").innerHTML = count;
+      document.getElementById("countinbox2").innerHTML = count;
+    </script>
+    <!-- NGITUNG JUMLAH DATA-->
   </body>
 </html>
