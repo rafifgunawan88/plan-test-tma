@@ -1,0 +1,36 @@
+{
+  "inbox": [
+    {
+      "inbox": "Ini inbox pertama"
+    },
+    {
+      "inbox": "Ini inbox kedua"
+    },
+    {
+      "inbox": "Ini inbox ketiga"
+    },
+    {
+      "inbox": "Ini inbox keempat"
+    },
+    {
+      "inbox": "Ini inbox kelima"
+    }
+  ],
+  "notif": [
+    {
+      "notif": "ini notif pertama"
+    },
+    {
+      "notif": "ini notif kedua"
+    },
+    {
+      "notif": "ini notif ktiga"
+    },
+    {
+      "notif": "ini notif keempat"
+    },
+    {
+      "notif": "ini notif kelima"
+    }
+  ]
+}

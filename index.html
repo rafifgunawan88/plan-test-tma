@@ -103,6 +103,13 @@
           transform: translateX(-100%);
         }
       }
+
+      #modalinbox {
+        width: 100%;
+      }
+      #modalnotif {
+        width: 100%;
+      }
     </style>
   </head>
   <body>
@@ -290,7 +297,7 @@
     <!-- AKHIR EXIT -->
 
     <div class="modal fade" id="inbox" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
@@ -299,17 +306,13 @@
           <div class="modal-body">
             <div class="row">
               <div class="col">
-                <table class="table table-bordered table align-middle">
+                <table id="modalinbox" class="table table-bordered table align-middle">
                   <thead class="table-secondary">
                     <tr>
                       <th scope="col">INBOX</th>
                     </tr>
                   </thead>
-                  <tbody>
-                    <tr>
-                      <td>0</td>
-                    </tr>
-                  </tbody>
+                  <tbody></tbody>
                 </table>
               </div>
             </div>
@@ -323,7 +326,7 @@
     </div>
 
     <div class="modal fade" id="notif" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
@@ -332,17 +335,13 @@
           <div class="modal-body">
             <div class="row">
               <div class="col">
-                <table class="table table-bordered table align-middle">
+                <table id="modalnotif" class="table table-bordered table align-middle">
                   <thead class="table-secondary">
                     <tr>
                       <th scope="col">NOTIFICATION</th>
                     </tr>
                   </thead>
-                  <tbody>
-                    <tr>
-                      <td>0</td>
-                    </tr>
-                  </tbody>
+                  <tbody></tbody>
                 </table>
               </div>
             </div>
@@ -402,6 +401,26 @@
           dataSrc: "daily_performances",
         },
         columns: [{ data: "date" }, { data: "target_time" }, { data: "work_time" }, { data: "achievement" }, { data: "overtime" }, { data: "day" }],
+      });
+    </script>
+
+    <script>
+      $("#modalinbox").DataTable({
+        ajax: {
+          url: "message.json",
+          dataSrc: "inbox",
+        },
+        columns: [{ data: "inbox" }],
+      });
+    </script>
+
+    <script>
+      $("#modalnotif").DataTable({
+        ajax: {
+          url: "message.json",
+          dataSrc: "notif",
+        },
+        columns: [{ data: "notif" }],
       });
     </script>
 
