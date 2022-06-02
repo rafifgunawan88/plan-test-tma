@@ -677,65 +677,29 @@
 
     <!-- NGITUNG JUMLAH DATA -->
     <script>
-      var myObject = [
-        {
-          notif: "ini notif pertama",
-        },
-        {
-          notif: "ini notif kedua",
-        },
-        {
-          notif: "ini notif ktiga",
-        },
-        {
-          notif: "ini notif keempat",
-        },
-        {
-          notif: "ini notif kelima",
-        },
-      ];
-      console.log(myObject);
-
-      var count = Object.keys(myObject).length;
-      console.log(count);
-
-      document.getElementById("countnotif").innerHTML = count;
-      document.getElementById("countnotif2").innerHTML = count;
+    $.ajax({
+    url: 'data.json',
+    success: function (data){
+        hasil = data.notif.length;
+        $("#countnotif2").html(hasil);
+        $("#countnotif").html(hasil);
+    }
+})
     </script>
     <!-- NGITUNG JUMLAH DATA-->
 
     <!-- NGITUNG JUMLAH DATA -->
 
     <script>
-      var table = [
-        {
-          inbox: "Ini inbox pertama",
-        },
-        {
-          inbox: "Ini inbox kedua",
-        },
-        {
-          inbox: "Ini inbox ketiga",
-        },
-        {
-          inbox: "Ini inbox keempat",
-        },
-        {
-          inbox: "Ini inbox keenam",
-        },
-        {
-          inbox: "Ini inbox kelima",
-        },
-      ];
-
-      var myObject = table;
-      console.log(myObject);
-
-      var count = Object.keys(myObject).length;
-      console.log(count);
-
-      document.getElementById("countinbox").innerHTML = count;
-      document.getElementById("countinbox2").innerHTML = count;
+     $.ajax({
+    url: 'data.json',
+    success: function (data){
+        hasil = data.inbox.length;
+        $("#countinbox2").html(hasil);
+        $("#countinbox").html(hasil);
+        
+    }
+})
     </script>
     <!-- NGITUNG JUMLAH DATA-->
   </body>
