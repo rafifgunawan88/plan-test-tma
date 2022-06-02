@@ -112,17 +112,17 @@
     <div class="mx-auto" style="width: 90%">
       <div class="row">
         <div class="col-2">
-          <div class="card bg-danger">
+          <div class="card bg-danger" >
             <img src="foto.jpeg" class="card-img-top" alt="fotouser" style="width: 50%" />
             <div class="card-body">
               <h5 class="card-title">Nama Lengkap</h5>
               <p class="card-text">Email</p>
               <div>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#notif">NOTIFICATION <span id="countnotif2" class="badge bg-secondary"></span></button><br />
+                <button type="button" class="btn " data-bs-toggle="offcanvas" data-bs-target="#offcanvasNotification" style="background: rgb(129, 36, 36); color: white;">NOTIFICATION <span id="countnotif2" class="badge bg-secondary"></span></button><br />
               </div>
               <br />
               <div>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#inbox">INBOX<span id="countinbox2" class="badge bg-secondary"></span></button><br />
+                <button type="button" class="btn btn-success" data-bs-toggle="offcanvas" data-bs-target="#offcanvasInbox">INBOX<span id="countinbox2" class="badge bg-secondary"></span></button><br />
               </div>
               <br /><br />
               <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">EXIT</button>
@@ -255,11 +255,11 @@
 
       <div class="p-1">
         <span>
-          <button id="countinbox" type="button" class="badge bg-success mx-2" data-bs-toggle="modal" data-bs-target="#inbox" style="border-radius: 100%; border: 2px solid white"></button>
+          <button id="countinbox" type="button" class="badge bg-success mx-2"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasInbox" style="border-radius: 100%; border: 2px solid white"></button>
         </span>
         <span> </span>
         <span>
-          <button id="countnotif" type="button" class="badge bg-danger" data-bs-toggle="modal" data-bs-target="#notif" style="border-radius: 100%; border: 2px solid white"></button>
+          <button id="countnotif" type="button" class="badge bg-danger"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasNotification" style="border-radius: 100%; border: 2px solid white"></button>
         </span>
       </div>
       <div class="p-1 flex-shrink-1 fs-6">
@@ -290,8 +290,50 @@
     </div>
 
     <!-- AKHIR EXIT -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasInbox" aria-labelledby="offcanvasExampleLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">INBOX</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <div class="row">
+          <div class="col">
+            <table id="modalinbox" class="table table-bordered table align-middle mx-auto" style="width: 95%">
+              <thead class="table-secondary">
+                <tr>
+                  <th scope="col">INBOX</th>
+                </tr>
+              </thead>
+              <tbody id="modalinboxbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <div class="modal fade" id="inbox" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNotification" aria-labelledby="offcanvasExampleLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">NOTIFICATION</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <div class="row">
+          <div class="col">
+            <table id="modalnotif" class="table table-bordered table align-middle mx-auto" style="width: 95%">
+              <thead class="table-secondary">
+                <tr>
+                  <th scope="col">NOTIFICATION</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="modal fade" id="inbox" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
           <div class="modal-header">
@@ -318,9 +360,9 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
-    <div class="modal fade" id="notif" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- <div class="modal fade" id="notif" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
           <div class="modal-header">
@@ -347,7 +389,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <!-- AKHIR MODAL -->
 
