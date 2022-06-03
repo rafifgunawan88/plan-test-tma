@@ -322,10 +322,11 @@
             <table id="modalnotif" class="table table-bordered table align-middle mx-auto" style="width: 95%">
               <thead class="table-secondary">
                 <tr>
-                  <th scope="col">NOTIFICATION</th>
+                  <th scope="col">NOTIF</th>
+                  <th scope="col">STATUS</th>
                 </tr>
               </thead>
-              <tbody></tbody>
+              <tbody id="tbodymodalnotif"></tbody>
             </table>
           </div>
         </div>
@@ -454,10 +455,16 @@
     <script>
       $("#modalnotif").DataTable({
         ajax: {
-          url: "message.json",
+          url: "data.json",
           dataSrc: "notif",
         },
-        columns: [{ data: "notif" }],
+        columns: [{ data: "notif" }, {data: "status"}],
+        "createdRow": function( row, data, dataIndex ) {
+    if ( data[1] == "danger" ) {
+      $(row).addClass( 'bg-danger' );
+    }
+  }
+    
       });
     </script>
 
@@ -701,6 +708,48 @@
     }
 })
     </script>
+
     <!-- NGITUNG JUMLAH DATA-->
+
+    <script>
+      $.ajax({
+     url: 'data.json',
+     success: function (data){
+      jumlah = data.notif.length;
+      for ( i = 0 ; i <= jumlah ; i++) {
+         hasil = data.notif[i].status;
+
+         if( hasil == "danger"){
+           status = "bg-danger";
+         } else if ( hasil == "safe"){
+           status = "bg-success";
+         } else {
+           status = "bg-warning";
+         }
+
+         console.log(status);
+      }
+     }
+ })
+     </script>
+
+     <script>
+        // $('#modalnotif').dataTable( {
+        //     "createdRow": function( row, data, dataIndex){
+        //       jumlah = data.notif.length;
+        //       for ( i = 0 ; i <= jumlah ; i++) {
+        //         hasil = data.notif[i].status;
+        //         if( hasil ==  `danger`){
+        //             $(row).addClass('bg-danger');
+        //         } else if( hasil ==  `safe`){
+        //             $(row).addClass('bg-success');
+        //         } else {
+        //             $(row).addClass('bg-warning');
+        //         }
+        //       }
+        //     }
+        // })
+     </script>
+    
   </body>
 </html>

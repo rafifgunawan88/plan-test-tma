@@ -105,19 +105,24 @@
   ],
   "notif": [
     {
-      "notif": "ini notif pertama"
+      "notif": "ini notif pertama",
+      "status": "danger"
     },
     {
-      "notif": "ini notif kedua"
+      "notif": "ini notif kedua",
+      "status": "warning"
     },
     {
-      "notif": "ini notif ktiga"
+      "notif": "ini notif ktiga",
+      "status": "safe"
     },
     {
-      "notif": "ini notif keempat"
+      "notif": "ini notif keempat",
+      "status": "danger"
     },
     {
-      "notif": "ini notif kelima"
+      "notif": "ini notif kelima",
+      "status": "danger"
     }
   ]
 }
