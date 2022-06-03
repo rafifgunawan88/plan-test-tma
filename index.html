@@ -445,7 +445,7 @@
     <script>
       $("#modalinbox").DataTable({
         ajax: {
-          url: "message.json",
+          url: "data.json",
           dataSrc: "inbox",
         },
         columns: [{ data: "inbox" }],
@@ -460,11 +460,16 @@
         },
         columns: [{ data: "notif" }, {data: "status"}],
         "createdRow": function( row, data, dataIndex ) {
-    if ( data[1] == "danger" ) {
-      $(row).addClass( 'bg-danger' );
-    }
-  }
-    
+        
+             if ( data.status == "danger" ) {        
+         $(row).addClass('bg-danger'); 
+             } else if ( data.status == "safe" ) {        
+         $(row).addClass('bg-success');
+             } else  {        
+         $(row).addClass('bg-warning');
+       }
+        }
+      
       });
     </script>
 
